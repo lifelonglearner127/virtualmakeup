@@ -1,0 +1,15 @@
+.top-nav {
+    padding: 50px 50px;
+}
+.reset-btn {
+    padding-top: 3px;
+}
+.color-btn {
+    border-radius: 50%;
+    margin: 1px 2px 1px 0;
+    line-height: 0;
+}
+.color-btn:hover {
+    border: 2px solid #f23b77
+}
+
