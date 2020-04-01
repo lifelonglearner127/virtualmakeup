@@ -8,19 +8,22 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/index.css">
   <script src="js/tf.min.js"></script>
-  <script async src="js/opencv.js" onload="onOpenCvReady();" type="text/javascript"></script>
+  <script src="js/tfjs-converter.js"></script>
+  <script src="js/tfjs-core.js"></script>
+  <script src="js/facemesh.js"></script>
+  <script async src="js/opencv.js" onload="onOpenCvReady();"></script>
   <script defer src="js/index.js"></script>
 </head>
 <body>
   <div>
-    <button type="button" class="btn btn-secondary">Hair Segmentation</button>
-    <button type="button" class="btn btn-secondary">Face Blush</button>
-    <button type="button" class="btn btn-secondary">Face Foundation</button>
-    <button type="button" class="btn btn-secondary">Face Concealer</button>
-    <button type="button" class="btn btn-secondary">Eye Brows</button>
-    <button type="button" class="btn btn-secondary">Eye Color</button>
-    <button type="button" class="btn btn-secondary">Eye Lashes</button>
-    <button type="button" class="btn btn-secondary">Eye Liner </button>
+    <button type="button" class="btn btn-secondary" onclick="makeupType('hair')">Hair Segmentation</button>
+    <button type="button" class="btn btn-secondary" onclick="makeupType('faceblush')">Face Blush</button>
+    <button type="button" class="btn btn-secondary" onclick="makeupType('facefoundation')">Face Foundation</button>
+    <button type="button" class="btn btn-secondary" onclick="makeupType('faceconcealer')">Face Concealer</button>
+    <button type="button" class="btn btn-secondary" onclick="makeupType('eyebrow')">Eye Brows</button>
+    <button type="button" class="btn btn-secondary" onclick="makeupType('eyecolor')">Eye Color</button>
+    <button type="button" class="btn btn-secondary" onclick="makeupType('eyelashes')">Eye Lashes</button>
+    <button type="button" class="btn btn-secondary" onclick="makeupType('eyeliner')">Eye Liner </button>
   </div>
   <div class="row">
     <div class="col-sm">
@@ -29,18 +32,20 @@
         <input type="file" id="srcImageInput" name="file" />
       </div>
       <div>
-        <img id="srcImage" alt="No Image" style="display: none;"/>
+        <img id="srcImage" alt="No Image" />
         <canvas id="imageOutput"></canvas>
       </div>
     </div>
     <div class="col-sm">
       <h1>Video</h1>
-      <video id="video" width="720" height="560" autoplay muted style=" -moz-transform: scaleX(-1);
+      <video id="video" autoplay muted style="
+        -moz-transform: scaleX(-1);
         -o-transform: scaleX(-1);
         -webkit-transform: scaleX(-1);
         transform: scaleX(-1);
-        display: none;
-        "></video>
+        display: none;">
+      </video>
+      <canvas id="videoOutput"></canvas>
     </div>
     <div class="col-sm">
       <h1>Color</h1>
